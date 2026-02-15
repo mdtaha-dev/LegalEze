@@ -1,0 +1,5 @@
+const Summary = () => {
+  return <h1 style={{ padding: "20px" }}>Summary Page</h1>;
+};
+
+export default Summary;
