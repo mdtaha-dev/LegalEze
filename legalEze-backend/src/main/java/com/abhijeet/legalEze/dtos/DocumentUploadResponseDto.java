@@ -1,7 +1,12 @@
 package com.abhijeet.legalEze.dtos;
 
+import com.abhijeet.legalEze.model.Status;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -10,10 +15,9 @@ import lombok.*;
 @Builder
 public class DocumentUploadResponseDto {
 
-    @NotBlank
+    private UUID id;
     private String fileName;
-
-    @NotBlank
-    private String contentType;
+    private Status status;
+    private LocalDateTime createdAt;
 
 }
