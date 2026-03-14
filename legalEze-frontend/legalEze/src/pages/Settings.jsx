@@ -69,11 +69,11 @@ const Settings = () => {
                   <label>Title</label>
                   <input type="text" defaultValue="Lead Counsel" />
                 </div>
-                <div className="form-group-full">
+                <div className="form-group form-group-full">
                   <label>Email Address</label>
                   <input type="email" defaultValue="alex.smith@legaleze.ai" />
                 </div>
-                <div className="form-group-full">
+                <div className="form-group form-group-full">
                   <label>Bio</label>
                   <textarea rows="4" placeholder="Tell us about yourself..."></textarea>
                 </div>
