@@ -45,6 +45,14 @@
 ### Document Ingestion
 - [x] File storage service interface defined (`FileStorageService.java`)
 - [x] File storage service implementation (`FileStorageServiceImpl.java` — local disk, UUID-prefixed filenames)
+- [x] Document parser (`DocumentParserService.java` — Spring AI PDF reader, one document per page)
+- [x] Text chunking logic (`TextChunkingService.java` — token-based, 800 tokens, 200 overlap)
+- [x] Ingestion pipeline (`DocumentIngestionService.java` — upload → parse → chunk → embed → store)
+- [x] Custom exception (`DocumentProcessingException.java`)
+
+### Embedding Generation
+- [x] Embedding handled automatically by `VectorStore.add()` via Gemini `text-embedding-004`
+- [x] Embeddings stored in pgvector via `VectorStore`
 
 ### Database Layer
 - [x] VectorStore bean explicitly wired (`VectorStoreConfig.java` — PgVectorStore with HNSW / cosine / 768 dims)
@@ -62,15 +70,7 @@ _No items currently in progress._
 
 ## TODO
 
-### Document Ingestion
 
-- [ ] Document parser (extract text from uploaded PDFs / legal documents)
-- [ ] Text chunking logic (split extracted text into semantically meaningful chunks)
-- [ ] Ingestion pipeline / orchestrator service (upload → parse → chunk → embed → store)
-
-### Embedding Generation
-- [ ] Embedding service (call Gemini `text-embedding-004` to vectorize text chunks)
-- [ ] Store generated embeddings in pgvector via `VectorStore`
 
 ### RAG Query Pipeline
 - [ ] Query embedding generation (embed user question for similarity search)
