@@ -1,9 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './UploadSection.css';
 import { FaCloudUploadAlt, FaFilePdf, FaRocket, FaSyncAlt } from 'react-icons/fa';
 import { IoIosInformationCircleOutline } from "react-icons/io";
 
 const UploadSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="upload-container">
       <div className="upload-header">
@@ -46,7 +49,10 @@ const UploadSection = () => {
            </div>
         </div>
 
-        <button className="btn btn-primary start-analysis-btn">
+        <button 
+          className="btn btn-primary start-analysis-btn"
+          onClick={() => navigate('/analysis')}
+        >
           <FaRocket className="rocket-icon" /> Start Analysis
         </button>
       </div>

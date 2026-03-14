@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import { FaGavel } from 'react-icons/fa';
 import { FiBell, FiSettings } from 'react-icons/fi';
+import NotificationPopover from './NotificationPopover';
 
 const Header = ({ variant = 'default' }) => {
   const navigate = useNavigate();
+  const [showNotifications, setShowNotifications] = useState(false);
 
   return (
     <header className={`header container ${variant === 'app' ? 'header-app' : ''}`}>
@@ -34,10 +36,22 @@ const Header = ({ variant = 'default' }) => {
         </div>
       ) : (
         <div className="app-actions">
-          <button className="icon-btn"><FiBell /></button>
-          <button className="icon-btn"><FiSettings /></button>
-          <div className="profile-placeholder">
-             <img src="https://ui-avatars.com/api/?name=I&background=FDBA74&color=fff" alt="Profile" />
+          <div className="popover-anchor">
+            <button 
+              className="icon-btn" 
+              onClick={() => setShowNotifications(!showNotifications)}
+            >
+              <FiBell />
+              <span className="notification-dot"></span>
+            </button>
+            {showNotifications && <NotificationPopover onClose={() => setShowNotifications(false)} />}
+          </div>
+          
+          <button className="icon-btn" onClick={() => navigate('/settings')}>
+            <FiSettings />
+          </button>
+          <div className="profile-placeholder" onClick={() => navigate('/settings')}>
+             <img src="https://ui-avatars.com/api/?name=Alex+Smith&background=FDBA74&color=fff" alt="Profile" />
           </div>
         </div>
       )}
