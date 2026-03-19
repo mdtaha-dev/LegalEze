@@ -1,0 +1,7 @@
+﻿{
+    "python.venvPath": "./legaleze/venv",
+    "python.analysis.extraPaths": ["./legaleze"],
+    "files.exclude": {
+        "**/__pycache__": true
+    }
+}
