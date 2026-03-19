@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import UploadSection from '../components/UploadSection';
 
-const UploadDocument = () => {
+const UploadPage = () => {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header variant="app" />
@@ -15,4 +15,4 @@ const UploadDocument = () => {
   );
 };
 
-export default UploadDocument;
+export default UploadPage;
